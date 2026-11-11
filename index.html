@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#382640">
+<title>HubBuy spreadsheet : catégories, tailles et repères QC</title>
+<meta name="description" content="Explorez HubBuy spreadsheet en français : catégories mode, conseils de taille, lecture des photos QC et méthode pour comparer avant d’acheter.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="HubBuy spreadsheet : le carnet de sélection">
+<meta property="og:description" content="Des catégories accessibles, des repères visuels et une méthode simple pour vérifier vos trouvailles.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://static.nike.com" crossorigin>
+<!--
+Fichier : index.html.
+Recherche : l’accès direct à Bing n’a pas abouti ; le classement exact de sa première page et dix résultats distincts ne sont donc pas certifiés.
+Corpus accessible utilisé pour identifier les intentions de recherche, sans reprise des textes ni des tarifs :
+hubbuy-spreadsheet.com ; hubbuy.net ; hubbuycnspreadsheet.net ;
+spreadsheet-kakobuy.com ; hubbuy-sheet.com ; hubbuyspreadsheet.org ;
+hubbuy.org.uk ; hubbuysheets.net ; superbuy.tips.
+Axes secondaires : guide HubBuy spreadsheet ; HubBuy finds ; HubBuy QC ;
+HubBuy shoes spreadsheet ; HubBuy clothing spreadsheet.
+Intentions longues traitées : catégories, débutants, liens produits, liens inactifs,
+variantes, disponibilité, date de vérification, comparaison vendeur, photos QC,
+contrôle coutures, longueur semelle, pointures EU, mesures à plat, largeur poitrine,
+longueur manches, coupe hoodie, transparence, taille pantalon, tour de tête,
+taille bracelet, dimensions foulard, coût total, conversion devise, poids emballé,
+volume colis, livraison France, retours.
+Ajouter une URL canonique uniquement lorsque l’adresse réelle de publication est connue.
+-->
+<style>
+:root{
+ --paper:#f6f3ed;
+ --ink:#29262a;
+ --plum:#382640;
+ --muted:#655e65;
+ --line:#d9d2d8;
+ --acid:#e7f3a4;
+ --white:#fff;
+ --radius:18px
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:var(--paper);
+ color:var(--ink);
+ font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ line-height:1.65
+}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible,summary:focus-visible{
+ outline:3px solid #8261a0;
+ outline-offset:5px
+}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{line-height:1.13;letter-spacing:-.035em}
+h1{
+ font-size:clamp(2.55rem,5.9vw,5.6rem);
+ font-weight:750;
+ max-width:850px
+}
+h2{font-size:clamp(1.8rem,3.4vw,3rem)}
+h3{font-size:1.25rem}
+p+p{margin-top:1rem}
+.wrap{width:min(1200px,92%);margin:auto}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+ padding:22px 0
+}
+.brand{
+ font-weight:800;
+ text-decoration:none;
+ font-size:1.15rem;
+ letter-spacing:-.045em
+}
+.top-note{font-size:.8rem;color:var(--muted)}
+.button{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:20px;
+ padding:12px 20px;
+ border-radius:100px;
+ background:var(--plum);
+ color:white;
+ text-decoration:none;
+ font-weight:650;
+ line-height:1.4
+}
+.button.light{background:var(--acid);color:var(--plum)}
+.eyebrow{
+ text-transform:uppercase;
+ letter-spacing:.14em;
+ font-size:.73rem;
+ font-weight:750
+}
+.intro{padding:40px 0 28px}
+.intro .eyebrow{margin-bottom:20px;color:var(--muted)}
+.intro h1 span{color:#735b7f}
+.intro p{
+ max-width:750px;
+ margin-top:22px;
+ font-size:1.08rem;
+ color:var(--muted)
+}
+.directory{
+ margin:8px 0 34px;
+ padding:24px;
+ background:var(--white);
+ border:1px solid var(--line);
+ border-radius:var(--radius)
+}
+.directory-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:baseline;
+ gap:15px;
+ margin-bottom:18px
+}
+.directory h2{font-size:1.2rem;letter-spacing:-.02em}
+.directory-top p{font-size:.8rem;color:var(--muted)}
+.categories{
+ display:grid;
+ grid-template-columns:repeat(5,minmax(0,1fr));
+ gap:9px
+}
+.categories a{
+ padding:13px 12px;
+ background:var(--paper);
+ border-radius:8px;
+ text-decoration:none;
+ font-size:.87rem;
+ font-weight:650;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
+ min-height:52px
+}
+.categories a:hover{background:var(--acid)}
+.categories span{font-size:.8rem;color:#756579}
+.feature{
+ display:grid;
+ grid-template-columns:1.1fr 1fr;
+ border-radius:var(--radius);
+ overflow:hidden;
+ background:var(--plum);
+ color:white
+}
+.hero-image{
+ position:relative;
+ background:#f1f1f1;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ min-width:0
+}
+.hero-image img{width:100%;aspect-ratio:1/1;object-fit:contain}
+.hero-caption{
+ position:absolute;
+ bottom:15px;
+ left:18px;
+ color:#403b40;
+ background:rgba(255,255,255,.94);
+ padding:6px 10px;
+ border-radius:6px;
+ font-size:.75rem
+}
+.feature-copy{
+ padding:clamp(25px,4vw,54px);
+ display:flex;
+ flex-direction:column;
+ justify-content:center
+}
+.feature-copy .eyebrow{color:var(--acid);margin-bottom:24px}
+.feature-copy h2{margin-bottom:20px}
+.feature-copy p{color:#e4dae8}
+.feature-copy .button{align-self:flex-start;margin-top:25px}
+.mini-note{font-size:.78rem;color:var(--muted);margin-top:12px}
+.section{padding:64px 0;border-bottom:1px solid var(--line)}
+.section-head{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:35px;
+ align-items:end;
+ margin-bottom:30px
+}
+.section-head .eyebrow{color:var(--muted);margin-bottom:13px}
+.section-head p{color:var(--muted);max-width:500px}
+.looks{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:18px
+}
+.look{min-width:0}
+.look figure{background:white;border-radius:12px;overflow:hidden}
+.look img{width:100%;aspect-ratio:1/1;object-fit:contain}
+.look figcaption{
+ padding:10px 14px;
+ font-size:.75rem;
+ border-top:1px solid #eee
+}
+.look h3{margin:18px 0 10px}
+.look p{font-size:.88rem;color:var(--muted);margin-bottom:12px}
+.look>a{font-size:.86rem;font-weight:700}
+.answer{
+ border-left:4px solid var(--plum);
+ padding:4px 0 4px 20px;
+ margin:26px 0;
+ font-size:1.1rem;
+ max-width:850px
+}
+.table-box{
+ overflow-x:auto;
+ border:1px solid var(--line);
+ border-radius:12px;
+ background:white
+}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+caption{text-align:left;padding:18px 20px;font-weight:700}
+th,td{
+ text-align:left;
+ padding:15px 20px;
+ border-top:1px solid var(--line);
+ vertical-align:top
+}
+thead th{background:#efebf1;font-size:.8rem}
+tbody th{font-weight:650;width:24%}
+td:last-child{color:var(--muted)}
+.articles{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:22px
+}
+.article{border-top:3px solid var(--plum);padding-top:20px}
+.article .eyebrow{color:var(--muted);margin-bottom:18px}
+.article h3{font-size:1.5rem;margin-bottom:18px}
+.article p{font-size:.94rem;color:var(--muted)}
+.article ul{padding-left:20px;font-size:.92rem}
+.article li{margin:9px 0}
+.article a{font-size:.9rem;font-weight:700}
+.memo{
+ margin-top:30px;
+ padding:24px;
+ border-radius:12px;
+ background:var(--acid)
+}
+.memo h3{margin-bottom:10px}
+.memo p{font-size:.92rem}
+.faq-grid{
+ display:grid;
+ grid-template-columns:.7fr 1.3fr;
+ gap:55px
+}
+.faq-title p{color:var(--muted);margin-top:20px}
+.faq details{border-bottom:1px solid var(--line);padding:19px 0}
+.faq details:first-child{padding-top:0}
+.faq summary{
+ font-weight:700;
+ cursor:pointer;
+ line-height:1.5;
+ padding-right:15px
+}
+.faq details p{font-size:.94rem;color:var(--muted);padding-top:14px}
+.closing{
+ margin:45px 0;
+ background:var(--plum);
+ color:white;
+ border-radius:var(--radius);
+ padding:35px;
+ display:flex;
+ gap:30px;
+ justify-content:space-between;
+ align-items:center
+}
+.closing h2{font-size:1.75rem}
+.closing p{color:#e4dae8;margin-top:10px;max-width:700px}
+.closing .button{flex-shrink:0}
+footer{padding:10px 0 35px;color:var(--muted);font-size:.78rem}
+footer p{max-width:1000px}
+footer .brand{
+ display:inline-block;
+ font-size:1rem;
+ color:var(--ink);
+ margin-bottom:12px
+}
+@media(min-width:900px){
+ .section{content-visibility:auto;contain-intrinsic-size:auto 650px}
+}
+@media(max-width:900px){
+ .categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .looks{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .articles{grid-template-columns:1fr}
+ .article{padding-bottom:15px}
+ .faq-grid{grid-template-columns:1fr;gap:30px}
+ .closing{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:600px){
+ .top .wrap{padding:17px 0}
+ .top-note{display:none}
+ .top .button{padding:9px 13px;font-size:.8rem}
+ .intro{padding-top:30px}
+ .intro p{font-size:1rem}
+ .directory{padding:16px}
+ .directory-top{display:block}
+ .directory-top p{margin-top:6px}
+ .categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .categories a{font-size:.78rem;padding:10px;min-height:49px}
+ .feature{grid-template-columns:1fr}
+ .hero-image img{aspect-ratio:1.2/1}
+ .feature-copy{padding:27px}
+ .section{padding:42px 0}
+ .section-head{grid-template-columns:1fr;gap:18px}
+ .looks{gap:15px}
+ .look h3{font-size:1.06rem}
+ .look figcaption{padding:9px;font-size:.68rem}
+ .closing{padding:26px}
+ th,td{padding:13px;min-width:150px}
+ tbody th{min-width:130px}
+ .brand{font-size:1rem}
+}
+@media(prefers-reduced-motion:no-preference){
+ .button,.categories a{transition:background-color .15s ease}
+ .button:hover{background:#594064}
+ .button.light:hover{background:#d4e58a}
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {
+   "@type":"CollectionPage",
+   "name":"HubBuy spreadsheet : le carnet de sélection",
+   "inLanguage":"fr",
+   "description":"Guide indépendant en français : catégories mode, comparaison des tailles, lecture des photos QC et préparation du budget.",
+   "about":{"@type":"Thing","name":"HubBuy spreadsheet"}
+  },
+  {
+   "@type":"Article",
+   "headline":"Un guide HubBuy spreadsheet pour débuter",
+   "inLanguage":"fr",
+   "articleBody":"Choisissez une catégorie et retenez quelques références comparables. Conservez le lien source, la variante, la date de vérification et les informations manquantes. Vérifiez que le lien ouvre toujours le bon article avant toute décision."
+  },
+  {
+   "@type":"Article",
+   "headline":"HubBuy QC : demander une image qui répond à une question",
+   "inLanguage":"fr",
+   "articleBody":"Une photo commerciale présente un modèle ; une photo QC doit correspondre à la commande examinée. Vérifiez le coloris, les coutures et les mesures utiles. Les photos seules ne prouvent ni l’authenticité ni la composition exacte."
+  },
+  {
+   "@type":"Article",
+   "headline":"Préparer un budget jusqu’à la réception",
+   "inLanguage":"fr",
+   "articleBody":"Séparez le prix de la variante, le transport local, les frais de service, la conversion monétaire, le transport international et les éventuels montants dus à destination. Vérifiez le poids emballé, le volume et les conditions de retour."
+  },
+  {
+   "@type":"FAQPage",
+   "inLanguage":"fr",
+   "mainEntity":[
+    {
+     "@type":"Question",
+     "name":"Qu’est-ce qu’un HubBuy spreadsheet ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"C’est une liste organisée de références produits qui sert à repérer et comparer des articles. Sa présence dans une liste ne garantit ni le stock, ni le prix final, ni l’authenticité d’un produit."
+     }
+    },
+    {
+     "@type":"Question",
+     "name":"Peut-on télécharger un fichier Excel sur cette page ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"Cette page propose un guide de sélection et des accès aux catégories de hipobuyfind.com. Elle ne fournit pas de fichier Excel, de Google Sheet ni de catalogue HubBuy synchronisé."
+     }
+    },
+    {
+     "@type":"Question",
+     "name":"Comment choisir une pointure ou une taille de vêtement ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"Comparez le tableau du vendeur avec les mesures d’un article qui vous va déjà. Pour une chaussure, vérifiez la longueur de semelle intérieure ; pour un haut, la largeur poitrine et la longueur. Une lettre ou une pointure EU seule ne suffit pas."
+     }
+    },
+    {
+     "@type":"Question",
+     "name":"Les photos QC prouvent-elles l’authenticité ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"Non. Elles peuvent montrer des détails visibles et certaines mesures, mais ne suffisent pas à prouver l’authenticité, la composition exacte ou l’absence de défauts cachés. Demandez des éléments de provenance vérifiables si nécessaire."
+     }
+    },
+    {
+     "@type":"Question",
+     "name":"Comment estimer une livraison en France ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"Demandez un devis adapté à votre destination et au colis emballé. Comparez le poids facturable, la ligne proposée, les frais inclus et les éventuels montants dus à l’arrivée. Aucun délai ni montant universel ne peut être déduit d’une simple photo."
+     }
+    },
+    {
+     "@type":"Question",
+     "name":"Pourquoi les boutons ouvrent-ils hipobuyfind.com ?",
+     "acceptedAnswer":{
+      "@type":"Answer",
+      "text":"Ce guide oriente la découverte vers hipobuyfind.com et ses catégories. Il ne représente pas HubBuy et ne permet pas de gérer un compte, une commande ou un paiement HubBuy. Les images de marques sont des repères visuels, sans garantie de disponibilité sur le site de destination."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/btulw/">
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <a class="brand" href="https://www.hipobuyfind.com" aria-label="Ouvrir hipobuyfind.com">hipobuyfind.com</a>
+  <span class="top-note">Le carnet mode · édition française</span>
+  <a class="button" href="https://www.hipobuyfind.com">Explorer le site <span aria-hidden="true">↗</span></a>
+ </div>
+</header>
+
+<main class="wrap">
+ <section class="intro" aria-labelledby="page-title">
+  <p class="eyebrow">Repérer / comparer / décider</p>
+  <h1 id="page-title">HubBuy spreadsheet.<br><span>Choisir avec méthode.</span></h1>
+  <p>Une sélection utile commence par les bonnes questions : quelle coupe, quelle mesure, quelle preuve visuelle ? Ce carnet vous aide à organiser vos recherches avant d’explorer les catégories de hipobuyfind.com.</p>
+ </section>
+
+ <nav class="directory" aria-label="Catégories de hipobuyfind.com">
+  <div class="directory-top">
+   <h2>Votre point de départ : une catégorie</h2>
+   <p>Accès directs aux rubriques de hipobuyfind.com</p>
+  </div>
+  <div class="categories">
+   <a href="https://hipobuyfind.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a>
+   <a href="https://hipobuyfind.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a>
+  </div>
+ </nav>
+
+ <section class="feature" aria-labelledby="feature-title">
+  <figure class="hero-image">
+   <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,q_auto:eco/e6da41fa-1be4-4ce5-b89c-22be4f1f02d4/AIR+FORCE+1+%2707.png"
+        width="864" height="864"
+        alt="Basket Nike Air Force 1 ’07 blanche, vue de profil"
+        loading="eager" fetchpriority="high" decoding="async">
+   <figcaption class="hero-caption">Repère visuel · Nike Air Force 1 ’07</figcaption>
+  </figure>
+  <div class="feature-copy">
+   <p class="eyebrow">Le détail avant le panier</p>
+   <h2 id="feature-title">Une belle image mérite une bonne vérification.</h2>
+   <p>Pour vos HubBuy finds, gardez une trace du modèle, du coloris et de la variante. Comparez ensuite la fiche actuelle, les mesures et les photos disponibles.</p>
+   <p>Une illustration de marque montre une référence esthétique. Elle ne confirme pas qu’un article similaire possède la même origine, les mêmes matériaux ou la même qualité.</p>
+   <a class="button light" href="https://www.hipobuyfind.com">Commencer ma recherche <span aria-hidden="true">↗</span></a>
+  </div>
+ </section>
+ <p class="mini-note">Guide indépendant. Les visuels illustrent des styles ; ils ne constituent ni des offres de vente ni des preuves de stock.</p>
+
+ <section class="section" aria-labelledby="looks-title">
+  <div class="section-head">
+   <div>
+    <p class="eyebrow">Carnet d’inspiration</p>
+    <h2 id="looks-title">Quatre détails à observer.</h2>
+   </div>
+   <p>Du volume d’une basket au réglage d’un bracelet : utilisez ces références pour formuler une question précise, puis consultez la fiche de l’article recherché.</p>
+  </div>
+
+  <div class="looks">
+   <article class="look">
+    <figure>
+     <img src="https://nz.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-trainer-sneaker--BM9U7PMI01_PM1_Side%20view.jpg?wid=480&amp;hei=480"
+          width="480" height="480" loading="lazy" decoding="async"
+          alt="Basket Louis Vuitton LV Trainer blanche, vue latérale">
+     <figcaption>Louis Vuitton · silhouette de basket</figcaption>
+    </figure>
+    <h3>Le volume de la semelle</h3>
+    <p>Une vue de profil aide à comparer la forme générale. Pour la pointure, demandez une longueur de semelle intérieure mesurée.</p>
+    <a href="https://hipobuyfind.com/category-911-Shoes.html">Explorer les chaussures ↗</a>
+   </article>
+
+   <article class="look">
+    <figure>
+     <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg"
+          width="640" height="640" loading="lazy" decoding="async"
+          alt="Casquette Gucci en toile beige à motif GG avec visière brune">
+     <figcaption>Gucci · casquette à motif GG</figcaption>
+    </figure>
+    <h3>Le tour de tête</h3>
+    <p>Pour une casquette réglable, vérifiez la plage de réglage, la profondeur et la forme de la visière. Une taille unique reste à contrôler.</p>
+    <a href="https://hipobuyfind.com/category-916-Headwear.html">Explorer les couvre-chefs ↗</a>
+   </article>
+
+   <article class="look">
+    <figure>
+     <img src="https://assets.hermes.com/is/image/hermesproduct/%E3%82%AB%E3%83%AC-90-%E3%80%8A%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AF%E9%9E%8D%E3%81%AE%E4%B8%AD%E3%81%AB%E3%80%8B--004204S%2001-flat-wm-3-0-0-800-800_g.jpg"
+          width="800" height="800" loading="lazy" decoding="async"
+          alt="Foulard carré Hermès orange à motifs de selles multicolores">
+     <figcaption>Hermès · carré à motifs équestres</figcaption>
+    </figure>
+    <h3>La dimension du carré</h3>
+    <p>Pour un foulard, notez les dimensions, la composition annoncée et les consignes d’entretien. Examinez aussi les bords et les finitions.</p>
+    <a href="https://hipobuyfind.com/category-920-Accessories.html">Explorer les accessoires ↗</a>
+   </article>
+
+   <article class="look">
+    <figure>
+     <img src="https://bordergara.com/cdn/shop/files/dr-2605-0454__1_12ba41c0-4081-42d4-8bf6-64a07c98be2d_800x.jpg?v=1779318180"
+          width="800" height="800" loading="lazy" decoding="async"
+          alt="Duo de bracelets Dior tissés bleu marine et beige avec cordons">
+     <figcaption>Dior · bracelets tissés</figcaption>
+    </figure>
+    <h3>Le réglage au poignet</h3>
+    <p>Un bracelet doit pouvoir se régler sans forcer. Vérifiez les dimensions, le système de fermeture et la matière déclarée en contact avec la peau.</p>
+    <a href="https://hipobuyfind.com/category-920-Accessories.html">Explorer les bijoux et accessoires ↗</a>
+   </article>
+  </div>
+ </section>
+
+ <section class="section" aria-labelledby="compare-title">
+  <div class="section-head">
+   <div>
+    <p class="eyebrow">Fiche pratique</p>
+    <h2 id="compare-title">Comparer ce qui se mesure.</h2>
+   </div>
+   <p>Une recherche « HubBuy shoes spreadsheet » porte sur la pointure et la forme ; une recherche « HubBuy clothing spreadsheet » appelle surtout des mesures à plat et des informations de coupe.</p>
+  </div>
+
+  <p class="answer"><strong>À quoi sert un tableau de sélection ?</strong> À conserver les différences utiles entre quelques articles : lien source, variante, mesures, informations manquantes et date de vérification.</p>
+
+  <div class="table-box">
+   <table>
+    <caption>Les contrôles à adapter à chaque famille</caption>
+    <thead>
+     <tr>
+      <th scope="col">Famille</th>
+      <th scope="col">Informations à relever</th>
+      <th scope="col">Question à résoudre</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <th scope="row">Baskets</th>
+      <td>Pointure EU, longueur intérieure, forme de l’avant-pied, variante exacte.</td>
+      <td>Les mesures correspondent-elles à une paire confortable que vous possédez ?</td>
+     </tr>
+     <tr>
+      <th scope="row">Hoodies et pulls</th>
+      <td>Largeur poitrine, longueur du dos, épaules, longueur des manches.</td>
+      <td>La coupe ample annoncée correspond-elle à vos mesures de référence ?</td>
+     </tr>
+     <tr>
+      <th scope="row">T-shirts et maillots</th>
+      <td>Tableau des tailles, composition, transparence, placement du motif.</td>
+      <td>Le tissu et la coupe conviennent-ils à l’usage prévu ?</td>
+     </tr>
+     <tr>
+      <th scope="row">Vestes</th>
+      <td>Doublure, fermeture, espace pour une couche supplémentaire.</td>
+      <td>Les photos montrent-elles aussi l’intérieur et les finitions ?</td>
+     </tr>
+     <tr>
+      <th scope="row">Pantalons et shorts</th>
+      <td>Tour de taille au repos, élasticité, hanches, entrejambe.</td>
+      <td>La mesure annoncée concerne-t-elle le vêtement à plat ou le corps ?</td>
+     </tr>
+     <tr>
+      <th scope="row">Ensembles et sous-vêtements</th>
+      <td>Mesures de chaque pièce, composition, contenu du lot, conditions de retour.</td>
+      <td>Chaque pièce convient-elle, et quelles restrictions s’appliquent aux retours ?</td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </section>
+
+ <section class="section" aria-labelledby="journal-title">
+  <div class="section-head">
+   <div>
+    <p class="eyebrow">Le journal d’achat</p>
+    <h2 id="journal-title">Trois lectures avant de choisir.</h2>
+   </div>
+   <p>Des conseils courts pour passer d’une collection de liens à une décision documentée, sans confondre recherche, inspection et commande.</p>
+  </div>
+
+  <div class="articles">
+   <article class="article">
+    <p class="eyebrow">01 · Organiser</p>
+    <h3>Un guide HubBuy spreadsheet pour débuter</h3>
+    <p>Choisissez une catégorie et retenez quelques références comparables. Conservez le lien source, la variante, la date de vérification et les informations manquantes. Vérifiez que le lien ouvre toujours le bon article avant toute décision.</p>
+    <ul>
+     <li>Un lien inactif ? Recherchez la référence d’origine ; ne supposez pas qu’un remplacement est identique.</li>
+     <li>Plusieurs vendeurs ? Comparez les mêmes variantes et les mêmes mesures.</li>
+     <li>Une disponibilité incertaine ? Notez « à confirmer » plutôt qu’une hypothèse.</li>
+    </ul>
+    <a href="https://www.hipobuyfind.com">Ouvrir le point de départ ↗</a>
+   </article>
+
+   <article class="article">
+    <p class="eyebrow">02 · Observer</p>
+    <h3>HubBuy QC : demander une image qui répond à une question</h3>
+    <p>Une photo commerciale présente un modèle ; une photo QC doit correspondre à la commande examinée. Vérifiez le coloris, les coutures et les mesures utiles. Les photos seules ne prouvent ni l’authenticité ni la composition exacte.</p>
+    <p>Pour une basket, demandez une vue du talon et une mesure lisible. Pour un haut, préférez une photo à plat avec repères. Si un détail reste invisible, demandez cet angle précis plutôt que davantage d’images similaires.</p>
+    <a href="https://www.hipobuyfind.com">Poursuivre la comparaison ↗</a>
+   </article>
+
+   <article class="article">
+    <p class="eyebrow">03 · Prévoir</p>
+    <h3>Préparer un budget jusqu’à la réception</h3>
+    <p>Séparez le prix de la variante, le transport local, les frais de service, la conversion monétaire, le transport international et les éventuels montants dus à destination. Vérifiez le poids emballé, le volume et les conditions de retour.</p>
+    <p>Pour une livraison en France, demandez un devis lié à votre destination. Une boîte volumineuse peut modifier le calcul du transport. Vérifiez aussi qui prend en charge un retour et dans quel délai vous devez le demander.</p>
+    <a href="https://www.hipobuyfind.com">Consulter les fiches disponibles ↗</a>
+   </article>
+  </div>
+
+  <aside class="memo" aria-labelledby="memo-title">
+   <h3 id="memo-title">Votre ligne de notes, prête à reproduire</h3>
+   <p>Référence · catégorie · vendeur · lien source · variante · mesures · prix et devise constatés · date du contrôle · photos disponibles · poids emballé à confirmer · coût total estimé · point restant à vérifier.</p>
+   <p>Conservez les inconnues dans votre carnet. Une cellule vide ne signifie pas qu’un service est inclus ou qu’un défaut est absent.</p>
+  </aside>
+ </section>
+
+ <section class="section faq-grid" aria-labelledby="faq-title">
+  <div class="faq-title">
+   <p class="eyebrow">Réponses directes</p>
+   <h2 id="faq-title">Les questions du carnet.</h2>
+   <p>Une réponse claire, puis une vérification sur la fiche actuelle de l’article. Ce guide ne traite aucune commande.</p>
+  </div>
+
+  <div class="faq">
+   <details open>
+    <summary>Qu’est-ce qu’un HubBuy spreadsheet ?</summary>
+    <p>C’est une liste organisée de références produits qui sert à repérer et comparer des articles. Sa présence dans une liste ne garantit ni le stock, ni le prix final, ni l’authenticité d’un produit.</p>
+   </details>
+
+   <details>
+    <summary>Peut-on télécharger un fichier Excel sur cette page ?</summary>
+    <p>Cette page propose un guide de sélection et des accès aux catégories de hipobuyfind.com. Elle ne fournit pas de fichier Excel, de Google Sheet ni de catalogue HubBuy synchronisé.</p>
+   </details>
+
+   <details>
+    <summary>Comment choisir une pointure ou une taille de vêtement ?</summary>
+    <p>Comparez le tableau du vendeur avec les mesures d’un article qui vous va déjà. Pour une chaussure, vérifiez la longueur de semelle intérieure ; pour un haut, la largeur poitrine et la longueur. Une lettre ou une pointure EU seule ne suffit pas.</p>
+   </details>
+
+   <details>
+    <summary>Les photos QC prouvent-elles l’authenticité ?</summary>
+    <p>Non. Elles peuvent montrer des détails visibles et certaines mesures, mais ne suffisent pas à prouver l’authenticité, la composition exacte ou l’absence de défauts cachés. Demandez des éléments de provenance vérifiables si nécessaire.</p>
+   </details>
+
+   <details>
+    <summary>Comment estimer une livraison en France ?</summary>
+    <p>Demandez un devis adapté à votre destination et au colis emballé. Comparez le poids facturable, la ligne proposée, les frais inclus et les éventuels montants dus à l’arrivée. Aucun délai ni montant universel ne peut être déduit d’une simple photo.</p>
+   </details>
+
+   <details>
+    <summary>Pourquoi les boutons ouvrent-ils hipobuyfind.com ?</summary>
+    <p>Ce guide oriente la découverte vers hipobuyfind.com et ses catégories. Il ne représente pas HubBuy et ne permet pas de gérer un compte, une commande ou un paiement HubBuy. Les images de marques sont des repères visuels, sans garantie de disponibilité sur le site de destination.</p>
+   </details>
+  </div>
+ </section>
+
+ <section class="closing" aria-labelledby="closing-title">
+  <div>
+   <h2 id="closing-title">Votre prochaine sélection commence ici.</h2>
+   <p>Choisissez une famille, ouvrez les fiches et gardez seulement les références dont vous comprenez les caractéristiques.</p>
+  </div>
+  <a class="button light" href="https://www.hipobuyfind.com">Explorer hipobuyfind.com ↗</a>
+ </section>
+</main>
+
+<footer class="wrap">
+ <a class="brand" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+ <p>Guide éditorial indépendant consacré à la recherche HubBuy spreadsheet. Aucune affiliation officielle avec HubBuy, Nike, Louis Vuitton, Gucci, Hermès ou Dior n’est revendiquée. Les marques restent la propriété de leurs titulaires. Visuels d’illustration : Nike, Louis Vuitton, Gucci, Hermès et BORDER-GARA pour les bracelets Dior ; ils ne sont pas présentés comme des photos QC.</p>
+ <p>Vérifiez les variantes, la disponibilité, les conditions applicables et le montant total sur le site de destination avant de commander.</p>
+</footer>
+</body>
+</html>
